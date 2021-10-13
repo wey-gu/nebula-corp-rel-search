@@ -1,7 +1,6 @@
-[TOC]
-
 `Corp-Rel` is a PoC of Corpartion Relationship Knowledge Graph System. It's built on top of the Open Source Graph Database: Nebula Graph with a dataset from [nebula-shareholding-example](https://github.com/wey-gu/nebula-shareholding-example).
 
+https://user-images.githubusercontent.com/1651790/137133913-f9f08ab0-d9bb-4735-9106-acd9a51e43eb.mov
 
 
 ## Quick Start
