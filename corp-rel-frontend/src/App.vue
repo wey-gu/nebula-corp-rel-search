@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <input v-model="entity" placeholder="Type A Entity, then Enter" v-on:keyup.enter="submit" />
+    <input v-model="entity" placeholder="Type An Entity, then Enter" v-on:keyup.enter="submit" />
     <network
       :nodeList="nodes"
       :linkList="relationships"

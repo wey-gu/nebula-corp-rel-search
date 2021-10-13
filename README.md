@@ -57,7 +57,16 @@ http {
 #...
 ```
 
-Then just go to http://localhost:8081 from the browser!
+After above reverse proxy being configured, let's verify it via cURL:
+
+```bash
+curl --header "Content-Type: application/json" \
+     --request POST \
+     --data '{"entity": "c_132"}' \
+     http://localhost:8081/api | jq
+```
+
+If it's properly responded, hen we could go to http://localhost:8081 from the web browser :).
 
 
 
@@ -449,19 +458,6 @@ curl --header "Content-Type: application/json" \
   ]
 }
 ```
-
-
-
-
-
-```bash
-curl --header "Content-Type: application/json" \
-     --request POST \
-     --data '{"entity": "c_132"}' \
-     http://localhost:8081/api | jq
-```
-
-
 
 
 
