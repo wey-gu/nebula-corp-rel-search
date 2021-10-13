@@ -1,15 +1,64 @@
 [TOC]
 
-## Arch
+`Corp-Rel` is a PoC of Corpartion Relationship Knowledge Graph System. It's built on top of the Open Source Graph Database: Nebula Graph with a dataset from [nebula-shareholding-example](https://github.com/wey-gu/nebula-shareholding-example).
 
 
 
 ## Quick Start
 
+First, please setup a Nebula Graph Cluster with data loaded from [nebula-shareholding-example](https://github.com/wey-gu/nebula-shareholding-example).
+
+Then, clone this project:
+
 ```bash
+git clone https://github.com/wey-gu/nebula-corp-rel-search.git
+cd nebula-corp-rel-search
 ```
 
+Start the backend:
 
+```bash
+python3 -m pip install -r requirements.txt
+cd corp-rel-backend
+export NG_ENDPOINTS="192.168.123.456:9669" # This should be your Nebula Graph Cluster GraphD Endpoint
+python3 app.py
+```
+
+Start the frontend in another terminal:
+
+```bash
+npm install -g @vue/cli
+cd nebula-corp-rel-search/corp-rel-frontend
+vue serve src/main.js
+```
+
+Start a reverse Proxy to enable `Corp-Rel` Backend being served with same origin of Frontend:
+
+For example below is a Nginx config to make `:8081/` go to `http://localhost:8080` and `:8081/api` go to `http://192.168.123.456:5000/api`.
+
+```nginx
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    keepalive_timeout  65;
+
+    server {
+        listen       8081;
+        server_name  localhost;
+        # frontend
+        location / {
+            proxy_pass http://localhost:8080;
+        }
+        # backend
+        location /api {
+            proxy_pass http://192.168.123.456:5000/api;
+        }
+    }
+#...
+```
+
+Then just go to http://localhost:8081 from the browser!
 
 
 
@@ -421,8 +470,8 @@ curl --header "Content-Type: application/json" \
 
 - Flask
 - vue.js
-- vue-network-d3
+- [vue-network-d3](https://github.com/ChenCyl/vue-network-d3)
 - D3.js
-- Nebula Graph
-- Nebula-Python
+- [Nebula Graph](https://github.com/vesoft-inc/nebula)
+- [Nebula-Python](https://github.com/vesoft-inc/nebula-python)
 
