@@ -53,7 +53,7 @@ export default {
       axios
       .post(api_endpoint, { "entity": this.entity })
       .then(response => {
-        console.log("Calling " + api_endpoint + " for " + this.entity)
+        console.log("Calling " + api_endpoint + " for " + this.entity);
         this.nodes = response.data.nodes;
         this.relationships = response.data.relationships;
         console.log(response.data.nodes);
