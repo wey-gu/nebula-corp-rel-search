@@ -80,7 +80,7 @@ connection_pool = ConnectionPool()
 if __name__ == "__main__":
     connection_pool.init(ng_endpoints, ng_config)
     try:
-        app.run(host="0.0.0.0", port=5000)
+        app.run(host="0.0.0.0", port=5001)
     finally:
         connection_pool.close()
 else:
