@@ -3,6 +3,42 @@
 https://user-images.githubusercontent.com/1651790/137133913-f9f08ab0-d9bb-4735-9106-acd9a51e43eb.mov
 
 
+> arch:
+
+```ascii
+  ┌───────────────┬───────────────┐
+  │               │  Frontend     │
+  │               │               │
+  │    ┌──────────▼──────────┐    │
+  │    │ Vue.JS              │    │
+  │    │ D3.JS               │    │
+  │    └──────────┬──────────┘    │
+  │               │  Backend      │
+  │    ┌──────────┴──────────┐    │
+  │    │ Flask               │    │
+  │    │ Nebula-Python       │    │
+  │    └──────────┬──────────┘    │
+  │               │  Graph Query  │
+  │    ┌──────────▼──────────┐    │
+  │    │ Graph Database      │    │
+  │    └─────────────────────┘    │
+  │                               │
+  └───────────────────────────────┘
+```
+
+> tree:
+
+```
+├── README.md         # You could find Design Logs here
+├── corp-rel-backend
+│   └── app.py        # Flask App to handle Requst and calls GDB
+├── corp-rel-frontend
+│   └── src
+│       ├── App.vue
+│       └── main.js   # Vue App to call Flask App and Renders Graph
+└── requirements.txt
+```
+
 ## Quick Start
 
 First, please setup a Nebula Graph Cluster with data loaded from [nebula-shareholding-example](https://github.com/wey-gu/nebula-shareholding-example).
