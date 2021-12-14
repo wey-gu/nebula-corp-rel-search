@@ -35,7 +35,7 @@ export default {
         {"id": "c_132", "name": "Chambers LLC", "tag": "corp"}],
       relationships: [],
       nodeSize: 18,
-      linkDistance: 320,
+      linkDistance: 270,
       linkWidth: 6,
       linkTextFrontSize: 15,
       nodeTypeKey: "tag",

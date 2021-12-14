@@ -38,9 +38,12 @@ def parse_nebula_graphd_endpoint():
 def query_shareholding(entity):
     query_string = (
         f"USE shareholding; "
-        f"MATCH p=(v)-[e:hold_share|:is_branch_of|:reletive_with|:role_as*1..3]-(v2) "
-        f"WHERE id(v) IN ['{ entity }'] RETURN p LIMIT 100"
+        f"MATCH p=(v)-[e:hold_share|:is_branch_of|:reletive_with|:role_as*1..4]-(v2) "
+        f"WHERE id(v) IN ['{ entity }'] RETURN p LIMIT 200"
     )
+
+    print(f"[DEBUG] nGQL:\n\t { query_string } \n")
+
     session = connection_pool.get_session('root', 'nebula')
     resp = session.execute(query_string)
     return resp
