@@ -63,7 +63,9 @@ Start the frontend in another terminal:
 
 ```bash
 npm install -g @vue/cli
+npm install -g @vue/cli-service-global
 cd nebula-corp-rel-search/corp-rel-frontend
+npm install
 vue serve src/main.js
 ```
 
