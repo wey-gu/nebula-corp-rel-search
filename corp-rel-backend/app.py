@@ -46,6 +46,8 @@ def query_shareholding(entity):
 
     session = connection_pool.get_session('root', 'nebula')
     resp = session.execute(query_string)
+    print(f"[DEBUG] resp:\n\t { resp } \n")
+
     return resp
 
 
@@ -82,6 +84,7 @@ connection_pool = ConnectionPool()
 
 if __name__ == "__main__":
     connection_pool.init(ng_endpoints, ng_config)
+    print(f"Nebula Graph connected: { ng_endpoints }")
     try:
         app.run(host="0.0.0.0", port=5001)
     finally:
